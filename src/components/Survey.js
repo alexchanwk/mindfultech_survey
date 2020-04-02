@@ -254,7 +254,7 @@ class Survey extends Component {
             <legend className="title">SMART ❤ 專屬互動課程</legend>
             <p>唔使等，比出面睇醫生或者周圍揾人幫手方便好多！</p>
             <p>自己做選擇，隨心所想！</p>
-            <a href="#" className="submit">開始探索</a>
+            <a href="{report.link}" className="submit">開始探索</a>
             <p></p>
           </fieldset>
         </div>
