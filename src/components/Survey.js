@@ -9,7 +9,8 @@ class Survey extends Component {
     uuid: null,
     report: null,
     error: null,
-    validationErrors: null
+    validationErrors: null,
+    isSubmitting: false
   }
 
   chartStyles = {
@@ -59,6 +60,7 @@ class Survey extends Component {
     e.preventDefault();
     const data = new FormData(e.target);
     if (this.handleValidation(data)) {
+      this.setState({ isSubmitting: true });
       fetch(config.scriptURL, { method: 'POST', body: data })
         .then(response => response.json())
         .then((data) => {
@@ -68,6 +70,9 @@ class Survey extends Component {
           }
         })
         .catch(error => console.error('Error!', error.message))
+        .finally(() => {
+          this.setState({ isSubmitting: false });
+        })
     } else {
       window.scrollTo(0, 0)
     }
@@ -156,7 +161,7 @@ class Survey extends Component {
           </ol>
         </fieldset>
         <div>
-          <button className="submit" type="submit">查看結果</button>
+          <button className="submit" type="submit" disabled={this.state.isSubmitting}>查看結果</button>
         </div>
       </form>
     )
