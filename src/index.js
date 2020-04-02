@@ -12,7 +12,7 @@ import * as serviceWorker from './serviceWorker';
 // );
 
 // Custom target element ID
-const appTarget = document.getElementById('mindfultech-survey-root');
+const appTarget = document.getElementById('mindfultech-survey');
 if (appTarget) { ReactDOM.render(<App />, appTarget); }
 
 // If you want your app to work offline and load faster, you can change
